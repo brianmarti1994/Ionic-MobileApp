@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-title>Bookings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-card *ngFor="let book of bookingArray">
+    <ion-card-header style="background-color: rgb(199, 138, 46);">
+      <ion-card-title >{{book.restaurant}}</ion-card-title>
+      <ion-card-subtitle style="color: rgb(255, 255, 255);">Booking Id : {{book.bookingid}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="row">
+        <div class="col-2">
+          <ion-label>Booked By :{{book.name}}</ion-label>
+        </div>
+        <div class="col-2">
+          <ion-label>Table No :{{book.table}}</ion-label>
+        </div>
+        <div class="col-2">
+          <ion-label>Total Members :{{book.totalpeople}}</ion-label>
+        </div>
+        <div class="col-2">
+          <ion-label>Date & Time :{{book.date}} - {{book.time}}</ion-label>
+        </div>
+      </div>
+     
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import{BookingService}from'src/app/Shared/booking.service';
 import { booking } from 'src/app/Home/home/booking';
 @Component({
-  selector: 'app-tabs',
-  templateUrl: 'tabs.page.html',
-  styleUrls: ['tabs.page.scss']
+  selector: 'app-bookings',
+  templateUrl: './bookings.page.html',
+  styleUrls: ['./bookings.page.scss'],
 })
-export class TabsPage {
+export class BookingsPage implements OnInit {
   bookingArray: any = [];
-  constructor(private BookingService:BookingService) {
+  constructor(private BookingService:BookingService) { }
+
+  ngOnInit() {
     this.BookingService.getBooking().subscribe(list =>{
       this.bookingArray = [];
       list.forEach( item => { 
@@ -17,7 +19,6 @@ export class TabsPage {
         this.bookingArray.push(a as booking)
       })
     });
-
   }
 
 }
